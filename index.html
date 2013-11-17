@@ -1,0 +1,140 @@
+<html>
+    <head>
+    <meta charset="utf-8" />
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    <script src="./javascript/FieldView.js"></script>
+
+
+    <script>
+
+
+onload = function()
+{
+    for (var y = 0; y < 15; ++y) {
+        var row = $('<div/>');
+        row.addClass('mine-field-row');
+        for (var x = 0; x < 30; ++x) {
+            var button = $('<button/>');
+            button.addClass('mine-button unpressed');
+            button.attr('onclick', 'pressed(' + x + ', ' + y + ')');
+            button.attr('id', 'mine-button-' + x + '-' + y);
+            row.append(button);
+        }
+        $('#field').append(row);
+    }
+}
+
+
+
+
+pressed = function(x, y)
+{
+    $('#mine-button-' + x + '-' + y).removeClass('unpressed').addClass('pressed');
+
+}
+
+
+
+    </script>
+
+
+
+
+    <style>
+
+#miner {
+    border: 1px solid black;
+    background-color: #c0c0c0;
+    padding: 6px;
+    display: inline-block;
+
+}
+
+
+#results {
+    border: 2px inset #9c9c9c;
+    padding: 6px;
+
+    text-align: center;
+
+    margin-bottom: 6px;
+}
+
+
+.dial {
+    border: 1px inset #9c9c9c;
+    background-color: black;
+    width: 45px;
+    height: 28px;
+
+    display: block;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+
+#face {
+    width: 28px;
+    height: 28px;
+
+    background: #c0c0c0 url(./images/face.png) no-repeat 100%;
+    background-position: center center;
+
+    border: 2px outset #9c9c9c;
+}
+
+
+#field {
+    border: 5px inset #9c9c9c;
+}
+
+
+
+
+.mine-button {
+    width: 20px;
+    height: 20px;
+
+    margin: 0;
+}
+
+
+.mine-button.unpressed {
+    background-color: #c0c0c0;
+    border: 3px outset #9c9c9c;
+}
+
+.mine-button.pressed {
+    border: 1px outset #9c9c9c;
+    background-color: #c0c0c0;
+}
+
+
+    </style>
+
+
+
+    </head>
+    <body>
+        <div id="miner">
+            <div id="results">
+                <div class="dial left"></div>
+                <button id="face"></button>
+                <div class="dial right"></div>
+            </div>
+
+            <div id="field">
+                <!-- Mines here -->
+            </div>
+        </div>
+    </body>
+</html>
