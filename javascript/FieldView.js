@@ -37,8 +37,8 @@
             for (var x = 0; x < options.width; ++x) {
                 var button = $('<button/>');
                 button.addClass('mine-button unpressed');
-                button.attr('onclick', 'pressed(' + x + ', ' + y + ')');
-                button.attr('id', 'mine-button-' + x + '-' + y);
+                button.prop('onclick', 'pressed(' + x + ', ' + y + ')');
+                button.prop('id', 'mine-button-' + x + '-' + y);
                 row.append(button);
             }
         }
@@ -62,7 +62,48 @@
             var button = $('#mine-button-' + X + '-' + Y);
             button.removeClass('unpressed');
             button.addClass('pressed');
-            button.css('background-color', 'black');
+
+            // Table of colors
+            // TODO: set right colors
+            colors = {
+                '0': 'green',
+                '1': 'red',
+                '2': 'yellow',
+                '3': 'red',
+                '4': 'blue',
+                '5': 'yellow',
+                '6': 'green',
+                '7': 'blue',
+                '8': 'red'
+            };
+
+
+            switch (type) {
+            case 'mine':
+                button.css('background-image', './images/mine.png');
+            break;
+            case 'destroyedMine':
+                button.css('background-image', './images/destroyed-mine.png');
+            break;
+            case 'flag':
+                button.css('background-image', './images/flag.png');
+            break;
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+                button.css('background-image', './images/number-' + type + '.png');
+            break;
+
+            case 'none':
+            default:
+            break;
+            }
         }
 
     }
