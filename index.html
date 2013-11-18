@@ -45,6 +45,13 @@ pressed = function(x, y)
 
     <style>
 
+
+@font-face {
+    font-family: Dial;
+    src: url(./fonts/dial/DS-DIGIB.TTF);
+}
+
+
 #miner {
     border: 1px solid black;
     background-color: #c0c0c0;
@@ -69,6 +76,11 @@ pressed = function(x, y)
     background-color: black;
     width: 45px;
     height: 28px;
+
+    font-size: 28px;
+    color: red;
+
+    font-family: Dial;
 
     display: block;
 }
@@ -127,9 +139,9 @@ pressed = function(x, y)
     <body>
         <div id="miner">
             <div id="results">
-                <div class="dial left"></div>
+                <div class="dial left">302</div>
                 <button id="face"></button>
-                <div class="dial right"></div>
+                <div class="dial right">756</div>
             </div>
 
             <div id="field">
