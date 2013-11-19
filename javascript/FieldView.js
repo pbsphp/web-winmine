@@ -99,7 +99,9 @@
             case '6':
             case '7':
             case '8':
-                button.css('background-image', './images/number-' + type + '.png');
+                button.html('<span>' + type + '</span>');
+                button.css('color', colors[type]);
+                // button.css('background-image', './images/number-' + type + '.png');
             break;
 
             case 'none':
