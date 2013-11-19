@@ -31,7 +31,7 @@
 
         var MINED = 1,
             EMPTY = 2,
-            NEUTRALIZED_MINE = 3,
+            NEUTRALIZED_MINE = 3;
 
 
 

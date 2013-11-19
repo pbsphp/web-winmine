@@ -29,6 +29,7 @@
 
             @param width        Field width
             @param height       Field height
+            @param field        Field DOM object
         */
 
         for (var y = 0; y < options.height; ++y) {
@@ -37,10 +38,11 @@
             for (var x = 0; x < options.width; ++x) {
                 var button = $('<button/>');
                 button.addClass('mine-button unpressed');
-                button.prop('onclick', 'pressed(' + x + ', ' + y + ')');
+                button.attr('onclick', 'alert(\'yes\')');
                 button.prop('id', 'mine-button-' + x + '-' + y);
                 row.append(button);
             }
+            options.field.append(row);
         }
 
 
