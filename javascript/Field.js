@@ -31,15 +31,10 @@
 
 
         var cells = [];
-
+/// !!!!
+window.cells = cells;
 
         // Create field and render buttons
-
-        var fieldView = new FieldView({
-            width: options.width,
-            height: options.height,
-            field: options.field
-        });
 
         for (var y = 0; y < options.height; ++y) {
             cells[y] = [];
@@ -77,9 +72,9 @@
 
             Return cell by X and Y coordinates
         */
-        this.getCell = function(X, Y)
+        this.getCell = function(x, y)
         {
-            return cells[Y][X];
+            return cells[y][x];
         }
 
 
@@ -88,10 +83,24 @@
 
             Count mines near (X,Y)
         */
-        this.countMinesNear = function(X, Y)
+        this.countMinesNear = function(x, y)
         {
-            console.log("MOCK");
-            return null;
+            var mines = 0;
+
+            // Check every cell around
+
+            for (var dy = y - 1; dy <= y + 1; ++dy)
+                for (var dx = x - 1; dx <= x + 1; ++dx)
+                    // Ignore self
+                    if (dx != x || dy != y)
+                        // X and Y in range
+                        if (0 <= dx && dx < options.width &&
+                            0 <= dy && dy < options.height)
+                            // (dx,dy) cell is mined
+                            if (cells[dy][dx].isMined())
+                                ++mines;
+
+            return mines;
         }
 
     }

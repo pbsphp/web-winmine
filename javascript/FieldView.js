@@ -38,7 +38,7 @@
             for (var x = 0; x < options.width; ++x) {
                 var button = $('<button/>');
                 button.addClass('mine-button unpressed');
-                button.attr('onclick', 'alert(\'yes\')');
+                button.attr('onclick', 'fieldsController.demine(' + x + ', ' + y + ')');
                 button.prop('id', 'mine-button-' + x + '-' + y);
                 row.append(button);
             }
@@ -90,7 +90,6 @@
             case 'flag':
                 button.css('background-image', './images/flag.png');
             break;
-            case '0':
             case '1':
             case '2':
             case '3':
@@ -101,9 +100,9 @@
             case '8':
                 button.html('<span>' + type + '</span>');
                 button.css('color', colors[type]);
-                // button.css('background-image', './images/number-' + type + '.png');
             break;
 
+            case '0':
             case 'none':
             default:
             break;
