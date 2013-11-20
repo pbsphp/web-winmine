@@ -76,6 +76,8 @@
         }
 
 
+
+
         /**
             countMinesNear
 
@@ -100,6 +102,26 @@
 
             return mines;
         }
+
+
+
+        /**
+            mines()
+
+            Return positions of all mines
+        */
+        this.mines = function()
+        {
+            var coordinates = [];
+
+            for (var y = 0; y < options.height; ++y)
+                for (var x = 0; x < options.width; ++x)
+                    if (cells[y][x].isMined())
+                        coordinates.push([x, y]);
+
+            return coordinates;
+        }
+
 
     }
 

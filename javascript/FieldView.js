@@ -48,6 +48,7 @@
 
 
         // Seconds after start
+
         var time = 0;
 
         var timer = null;
@@ -89,13 +90,13 @@
 
             switch (type) {
             case 'mine':
-                button.css('background-image', './images/mine.png');
+                button.css('background-image', 'url(./images/mine.png)');
             break;
             case 'destroyedMine':
-                button.css('background-image', './images/destroyed-mine.png');
+                button.css('background-image', 'url(./images/destroyed-mine.png)');
             break;
             case 'flag':
-                button.css('background-image', './images/flag.png');
+                button.css('background-image', 'url(./images/flag.png)');
             break;
             case '1':
             case '2':
@@ -122,12 +123,15 @@
         /**
             startTimer()
 
-            Start count seconds after start
+            Start count seconds after start (if timer not started yet)
 
             TODO: use background workers (?)
         */
         this.startTimer = function()
         {
+            if (timer)
+                return;
+
             timer = setInterval(function() {
                 ++time;
 
@@ -138,6 +142,77 @@
                 }
                 $('#timer').html(stime);
             }, 1000);
+        }
+
+
+        /**
+            stopTimer()
+
+            Stop count seconds after start
+        */
+        this.stopTimer = function()
+        {
+            clearInterval(timer);
+        }
+
+
+
+        /**
+            setFace(face)
+
+            Change smile on button
+        */
+        this.setFace = function(face)
+        {
+            var button = $('#face');
+            switch (face) {
+            case 'normal':
+                button.css('background-image', 'url(./images/face-normal.png)');
+            break;
+            case 'scared':
+                button.css('background-image', 'url(./images/face-scared.png)');
+            break;
+            case 'dead':
+                button.css('background-image', 'url(./images/face-dead.png)');
+            break;
+
+            default:
+                // TODO: Raise error
+                console.log()
+            }
+        }
+
+
+
+        /**
+            showMines(positions)
+
+            Render mines
+        */
+        this.showMines = function(coordinates)
+        {
+            for (var i = 0; i < coordinates.length; ++i) {
+                var x = coordinates[i][0];
+                var y = coordinates[i][1];
+
+                $('#mine-button-' + x + '-' + y)
+                    .removeClass('unpressed')
+                    .addClass('pressed');
+
+                this.renderIn(x, y, 'mine');
+            }
+        }
+
+
+
+        /**
+            red(x, y)
+
+            Set cell background red
+        */
+        this.red = function(x, y)
+        {
+            $('#mine-button-' + x + '-' + y).css('background-color', 'red');
         }
 
     }

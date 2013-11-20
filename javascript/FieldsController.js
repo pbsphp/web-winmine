@@ -47,10 +47,11 @@
         });
 
 
+        // Change face on LMB press and unpress
 
-        // Start timer
-
-        fieldView.startTimer();
+        $('#miner')
+            .mousedown  (function() { fieldView.setFace('scared');  })
+            .mouseup    (function() { fieldView.setFace('normal');  });
 
 
 
@@ -120,6 +121,11 @@
         */
         this.demine = function(x, y)
         {
+            // Start timer (If not started yet)
+
+            fieldView.startTimer();
+
+
             var cell = field.getCell(x, y);
 
 
@@ -130,7 +136,17 @@
                 // If there is mine
 
                 if (cell.isMined()) {
-                    alert('OBOSRALSYA');
+                    // Bang!
+
+                    fieldView.stopTimer();
+
+                    fieldView.setFace('dead');
+
+                    fieldView.showMines(field.mines());
+
+                    fieldView.red(x, y);
+
+                    $('#miner').unbind();
                 }
                 else {
                     recursiveClearEmptyField(x, y);
