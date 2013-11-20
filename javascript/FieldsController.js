@@ -31,6 +31,7 @@
 
 
         // Initialize field
+
         var field = new Field({
             width: options.width,
             height: options.height,
@@ -45,6 +46,11 @@
             field: options.field
         });
 
+
+
+        // Start timer
+
+        fieldView.startTimer();
 
 
 

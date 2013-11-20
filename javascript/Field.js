@@ -31,8 +31,6 @@
 
 
         var cells = [];
-/// !!!!
-window.cells = cells;
 
         // Create field and render buttons
 

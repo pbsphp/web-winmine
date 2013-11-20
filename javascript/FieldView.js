@@ -47,6 +47,13 @@
 
 
 
+        // Seconds after start
+        var time = 0;
+
+        var timer = null;
+
+
+
         /**
             renderIn(X, Y, type)
 
@@ -107,6 +114,30 @@
             default:
             break;
             }
+        }
+
+
+
+
+        /**
+            startTimer()
+
+            Start count seconds after start
+
+            TODO: use background workers (?)
+        */
+        this.startTimer = function()
+        {
+            timer = setInterval(function() {
+                ++time;
+
+                // Get three last digits (within zeros)
+                var stime = '';
+                for (var i = 3; i > 0; --i) {
+                    stime += ((time / Math.pow(10, i - 1)) % 10) | 0;
+                }
+                $('#timer').html(stime);
+            }, 1000);
         }
 
     }
