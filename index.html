@@ -36,20 +36,23 @@ onload = function()
     fieldsController = new FieldsController({
         width: 9,
         height: 9,
-        mines: 10,
+        mines: 3,
         field: $('#field')
     });
 
 }
 
 
-
-
-pressed = function(x, y)
+function f()
 {
-    $('#mine-button-' + x + '-' + y).removeClass('unpressed').addClass('pressed');
-
+    fieldsController = new FieldsController({
+        width: 9,
+        height: 9,
+        mines: 10,
+        field: $('#field')
+    })
 }
+
 
 
 
@@ -179,7 +182,7 @@ pressed = function(x, y)
             <div id="results">
                 <div id="number_of_mines" class="dial left">000</div>
                 <span id="face-border">
-                    <button id="face"></button>
+                    <button id="face" onclick="f()"></button>
                 </span>
                 <div id="timer" class="dial right">000</div>
             </div>

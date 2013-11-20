@@ -32,6 +32,11 @@
             @param field        Field DOM object
         */
 
+
+        // Render buttons
+
+        options.field.html('');         // Clear after previous round
+
         for (var y = 0; y < options.height; ++y) {
             var row = $('<div/>');
             row.addClass('mine-field-row');
@@ -45,6 +50,11 @@
             options.field.append(row);
         }
 
+
+
+        // Clear dials
+
+        $('#timer').html('000');
 
 
         // Seconds after start
@@ -165,21 +175,15 @@
         this.setFace = function(face)
         {
             var button = $('#face');
-            switch (face) {
-            case 'normal':
-                button.css('background-image', 'url(./images/face-normal.png)');
-            break;
-            case 'scared':
-                button.css('background-image', 'url(./images/face-scared.png)');
-            break;
-            case 'dead':
-                button.css('background-image', 'url(./images/face-dead.png)');
-            break;
 
-            default:
-                // TODO: Raise error
-                console.log()
+            var faces = {
+                normal: 'url(./images/face-normal.png)',
+                scared: 'url(./images/face-scared.png)',
+                dead:   'url(./images/face-dead.png)',
+                winner: 'url(./images/face-winner.png)',
             }
+
+            button.css('background-image', faces[face]);
         }
 
 

@@ -123,6 +123,24 @@
         }
 
 
+
+        /**
+            onlyMines()
+
+            Returns true if all next cells is mines
+        */
+        this.onlyMines = function()
+        {
+            for (var y = 0; y < cells.length; ++y)
+                for (var x = 0; x < cells[y].length; ++x)
+                    if (cells[y][x].statusIsUnknown() &&
+                        !cells[y][x].isMined())
+                        return false;
+
+            return true;
+        }
+
+
     }
 
 })();

@@ -136,9 +136,8 @@
                 // If there is mine
 
                 if (cell.isMined()) {
-                    // Bang!
 
-                    fieldView.stopTimer();
+                    // Bang!
 
                     fieldView.setFace('dead');
 
@@ -146,10 +145,29 @@
 
                     fieldView.red(x, y);
 
+                    // TODO: this.stopGame()
+
+                    fieldView.stopTimer();
+
                     $('#miner').unbind();
                 }
                 else {
                     recursiveClearEmptyField(x, y);
+
+                    // If no more empty cells, only mines, then win
+
+                    if (field.onlyMines()) {
+
+                        // Win
+
+                        fieldView.setFace('winner');
+
+                        // TODO: this.stopGame()
+
+                        fieldView.stopTimer();
+
+                        $('#miner').unbind();
+                    }
                 }
 
 
