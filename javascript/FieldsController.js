@@ -56,6 +56,30 @@
 
 
         /**
+            stopGame()
+
+            Stop game:
+            Remember scores, remove listeners, block field
+        */
+        var stopGame = function()
+        {
+            // Stop timer
+
+            fieldView.stopTimer();
+
+
+            // Remove listeners
+
+            $('#miner').unbind();
+
+            $('.mine-button').unbind();
+            $('.mine-button').prop('onclick', '');
+        }
+
+
+
+
+        /**
             recursiveClearEmptyField(x, y)
 
             Clear some cells after demine
@@ -145,11 +169,7 @@
 
                     fieldView.red(x, y);
 
-                    // TODO: this.stopGame()
-
-                    fieldView.stopTimer();
-
-                    $('#miner').unbind();
+                    stopGame();
                 }
                 else {
                     recursiveClearEmptyField(x, y);
@@ -162,11 +182,7 @@
 
                         fieldView.setFace('winner');
 
-                        // TODO: this.stopGame()
-
-                        fieldView.stopTimer();
-
-                        $('#miner').unbind();
+                        stopGame();
                     }
                 }
 

@@ -64,6 +64,11 @@
         var timer = null;
 
 
+        // Set normal face
+
+        $('#face').css('background-image', 'url(./images/face-normal.png)');
+
+
 
         /**
             renderIn(X, Y, type)
