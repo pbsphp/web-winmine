@@ -44,11 +44,21 @@
     <body>
         <div id="minesweeper">
             <div id="results">
-                <div id="number_of_mines" class="dial left">000</div>
-                <span id="face-border">
-                    <button id="face" onclick="game.restart()"></button>
-                </span>
-                <div id="timer" class="dial right">000</div>
+                <table class="results-table" width="100%">
+                    <tr>
+                        <td>
+                            <div id="number_of_mines" class="dial left">000</div>
+                        </td>
+                        <td align="center">
+                            <span id="face-border">
+                                <button id="face" onclick="game.restart()"></button>
+                            </span>
+                        </td>
+                        <td>
+                            <div id="timer" class="dial right">000</div>
+                        </td>
+                    </tr>
+                </table>
             </div>
 
             <div id="field">

@@ -92,13 +92,14 @@
 
 
 .mine-button {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
 
     margin: 0;
 
     position: relative;
     text-align: center;
+    display: inline-block;
 }
 
 .mine-button span {
@@ -107,16 +108,20 @@
     left: 0;
     width: 100%;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 
 .mine-button.unpressed {
     background-color: #c0c0c0;
     border: 2px outset #b0b0b0;
+    width: 14px;
+    height: 14px;
 }
 
 .mine-button.pressed {
+    width: 16px;
+    height: 16px;
     border: 1px outset #808080;
     background-color: #c0c0c0;
 }

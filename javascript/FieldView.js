@@ -41,7 +41,7 @@
             var row = $('<div/>');
             row.addClass('mine-field-row');
             for (var x = 0; x < options.width; ++x) {
-                var button = $('<button/>')
+                var button = $('<div/>')
                     .addClass('mine-button unpressed')
                     .attr('onclick',
                         'game.fieldsController.demine(' + x + ', ' + y + ')')
