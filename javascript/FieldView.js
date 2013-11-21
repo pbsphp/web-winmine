@@ -44,9 +44,9 @@
                 var button = $('<button/>')
                     .addClass('mine-button unpressed')
                     .attr('onclick',
-                        'fieldsController.demine(' + x + ', ' + y + ')')
+                        'game.fieldsController.demine(' + x + ', ' + y + ')')
                     .attr('oncontextmenu',
-                        'fieldsController.mark(' + x + ', ' + y + ');\
+                        'game.fieldsController.mark(' + x + ', ' + y + ');\
                         return false')
                     .prop('id', 'mine-button-' + x + '-' + y);
 
@@ -145,7 +145,7 @@
                 button.css('background-image', 'none');
             break;
             }
-        }
+        };
 
 
 
@@ -172,7 +172,8 @@
                 }
                 $('#timer').html(stime);
             }, 1000);
-        }
+        };
+
 
 
         /**
@@ -183,7 +184,7 @@
         this.stopTimer = function()
         {
             clearInterval(timer);
-        }
+        };
 
 
 
@@ -200,11 +201,11 @@
                 normal: 'url(./images/face-normal.png)',
                 scared: 'url(./images/face-scared.png)',
                 dead:   'url(./images/face-dead.png)',
-                winner: 'url(./images/face-winner.png)',
-            }
+                winner: 'url(./images/face-winner.png)'
+            };
 
             button.css('background-image', faces[face]);
-        }
+        };
 
 
 
@@ -225,7 +226,7 @@
 
                 this.renderIn(x, y, 'mine');
             }
-        }
+        };
 
 
 
@@ -237,9 +238,9 @@
         this.red = function(x, y)
         {
             $('#mine-button-' + x + '-' + y).css('background-color', 'red');
-        }
+        };
 
-    }
+    };
 
 })();
 // Nikolay is gay

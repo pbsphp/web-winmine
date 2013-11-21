@@ -61,7 +61,7 @@
             Stop game:
             Remember scores, remove listeners, block field
         */
-        var stopGame = function()
+        this.stopGame = function()
         {
             // Stop timer
 
@@ -74,7 +74,7 @@
 
             $('.mine-button').unbind();
             $('.mine-button').prop('onclick', '');
-        }
+        };
 
 
 
@@ -95,7 +95,7 @@
         {
             if (x >= 0 && x < options.width && y >= 0 && y < options.height) {
 
-                var cell = field.getCell(x, y)
+                var cell = field.getCell(x, y);
 
 
                 // Check cell if needed
@@ -128,7 +128,7 @@
             else {
                 // X or Y not in range, ignore
             }
-        }
+        };
 
 
 
@@ -169,7 +169,7 @@
 
                     fieldView.red(x, y);
 
-                    stopGame();
+                    this.stopGame();
                 }
                 else {
                     recursiveClearEmptyField(x, y);
@@ -182,7 +182,7 @@
 
                         fieldView.setFace('winner');
 
-                        stopGame();
+                        this.stopGame();
                     }
                 }
 
@@ -194,7 +194,7 @@
             else {
                 // Just ignore this click
             }
-        }
+        };
 
 
 
@@ -221,8 +221,8 @@
                     fieldView.renderIn(x, y, 'none');
                 }
             }
-        }
+        };
 
-    }
+    };
 
 })();

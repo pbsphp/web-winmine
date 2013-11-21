@@ -16,7 +16,7 @@
 
 (function() {
 
-    Field = function(options={})
+    Field = function(options)
     {
         /**
             Constructor
@@ -73,7 +73,7 @@
         this.getCell = function(x, y)
         {
             return cells[y][x];
-        }
+        };
 
 
 
@@ -101,7 +101,7 @@
                                 ++mines;
 
             return mines;
-        }
+        };
 
 
 
@@ -120,7 +120,7 @@
                         coordinates.push([x, y]);
 
             return coordinates;
-        }
+        };
 
 
 
@@ -138,9 +138,9 @@
                         return false;
 
             return true;
-        }
+        };
 
 
-    }
+    };
 
 })();

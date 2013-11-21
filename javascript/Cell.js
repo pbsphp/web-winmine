@@ -16,7 +16,7 @@
 
 (function() {
 
-    Cell = function(options={})
+    Cell = function(options)
     {
         /**
             Constructor
@@ -58,7 +58,7 @@
         this.isMined = function()
         {
             return (status == MINED);
-        }
+        };
 
 
         /**
@@ -69,7 +69,7 @@
         this.isNeutralized = function()
         {
             return (status == NEUTRALIZED_MINE);
-        }
+        };
 
 
 
@@ -81,7 +81,7 @@
         this.isFlaged = function()
         {
             return (mark == FLAG);
-        }
+        };
 
 
 
@@ -93,7 +93,7 @@
         this.isQuestionMarked = function()
         {
             return (mark == QUESTION_MARK);
-        }
+        };
 
 
 
@@ -105,7 +105,7 @@
         this.statusIsUnknown = function()
         {
             return unknownStatus;
-        }
+        };
 
 
         /**
@@ -116,7 +116,7 @@
         this.mine = function()
         {
             status = MINED;
-        }
+        };
 
 
         /**
@@ -127,7 +127,7 @@
         this.neutralizeMine = function()
         {
             status = NEUTRALIZED_MINE;
-        }
+        };
 
 
         /**
@@ -139,7 +139,7 @@
         this.check = function()
         {
             unknownStatus = false;
-        }
+        };
 
 
 
@@ -154,12 +154,12 @@
                 not_marked: NOT_MARKED,
                 flag: FLAG,
                 question_mark: QUESTION_MARK
-            }
+            };
 
             mark = marks[M];
-        }
+        };
 
 
-    }
+    };
 
 })();
