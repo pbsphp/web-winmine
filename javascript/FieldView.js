@@ -41,10 +41,15 @@
             var row = $('<div/>');
             row.addClass('mine-field-row');
             for (var x = 0; x < options.width; ++x) {
-                var button = $('<button/>');
-                button.addClass('mine-button unpressed');
-                button.attr('onclick', 'fieldsController.demine(' + x + ', ' + y + ')');
-                button.prop('id', 'mine-button-' + x + '-' + y);
+                var button = $('<button/>')
+                    .addClass('mine-button unpressed')
+                    .attr('onclick',
+                        'fieldsController.demine(' + x + ', ' + y + ')')
+                    .attr('oncontextmenu',
+                        'fieldsController.mark(' + x + ', ' + y + ');\
+                        return false')
+                    .prop('id', 'mine-button-' + x + '-' + y);
+
                 row.append(button);
             }
             options.field.append(row);
@@ -85,8 +90,7 @@
         this.renderIn = function(X, Y, type)
         {
             var button = $('#mine-button-' + X + '-' + Y);
-            button.removeClass('unpressed');
-            button.addClass('pressed');
+
 
             // Table of colors
             // TODO: set right colors
@@ -105,14 +109,20 @@
 
             switch (type) {
             case 'mine':
+                button.removeClass('unpressed').addClass('pressed');
                 button.css('background-image', 'url(./images/mine.png)');
             break;
             case 'destroyedMine':
+                button.removeClass('unpressed').addClass('pressed');
                 button.css('background-image', 'url(./images/destroyed-mine.png)');
             break;
             case 'flag':
                 button.css('background-image', 'url(./images/flag.png)');
             break;
+            case 'question_mark':
+                button.css('background-image', 'url(./images/question_mark.png)');
+            break;
+
             case '1':
             case '2':
             case '3':
@@ -121,13 +131,18 @@
             case '6':
             case '7':
             case '8':
+                button.removeClass('unpressed').addClass('pressed');
                 button.html('<span>' + type + '</span>');
                 button.css('color', colors[type]);
             break;
 
             case '0':
+                button.removeClass('unpressed').addClass('pressed');
+                // No break needed here
             case 'none':
             default:
+                button.html('');
+                button.css('background-image', 'none');
             break;
             }
         }
@@ -227,3 +242,4 @@
     }
 
 })();
+// Nikolay is gay

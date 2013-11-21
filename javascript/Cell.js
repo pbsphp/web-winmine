@@ -34,11 +34,17 @@
             NEUTRALIZED_MINE = 3;
 
 
+        var NOT_MARKED = 1,
+            FLAG = 2,
+            QUESTION_MARK = 3;
+
+
 
         // Set default parameters
 
         var status = EMPTY,
-            unknownStatus = true;
+            unknownStatus = true,
+            mark = NOT_MARKED;
 
 
 
@@ -64,6 +70,31 @@
         {
             return (status == NEUTRALIZED_MINE);
         }
+
+
+
+        /**
+            isFlaged()
+
+            Is cell marked with flag?
+        */
+        this.isFlaged = function()
+        {
+            return (mark == FLAG);
+        }
+
+
+
+        /**
+            isQuestionMarked()
+
+            Is cell market by question mark?
+        */
+        this.isQuestionMarked = function()
+        {
+            return (mark == QUESTION_MARK);
+        }
+
 
 
         /**
@@ -109,6 +140,25 @@
         {
             unknownStatus = false;
         }
+
+
+
+        /**
+            mark(M)
+
+            Mark cell
+        */
+        this.mark = function(M)
+        {
+            var marks = {
+                not_marked: NOT_MARKED,
+                flag: FLAG,
+                question_mark: QUESTION_MARK
+            }
+
+            mark = marks[M];
+        }
+
 
     }
 

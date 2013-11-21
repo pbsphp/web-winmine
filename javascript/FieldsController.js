@@ -100,7 +100,7 @@
 
                 // Check cell if needed
 
-                if (cell.statusIsUnknown()) {
+                if (cell.statusIsUnknown() && (!cell.isFlaged())) {
 
                     // Count mines around cell
 
@@ -155,7 +155,7 @@
 
             // If we not click this cell yet
 
-            if (cell.statusIsUnknown()) {
+            if (cell.statusIsUnknown() && (!cell.isFlaged())) {
 
                 // If there is mine
 
@@ -193,6 +193,33 @@
             }
             else {
                 // Just ignore this click
+            }
+        }
+
+
+
+        /**
+            mark(x, y)
+
+            Mark cell with flag
+        */
+        this.mark = function(x, y)
+        {
+            var cell = field.getCell(x, y);
+
+            if (cell.statusIsUnknown()) {
+                if (!cell.isFlaged() && !cell.isQuestionMarked()) {
+                    cell.mark('flag');
+                    fieldView.renderIn(x, y, 'flag');
+                }
+                else if (cell.isFlaged()) {
+                    cell.mark('question_mark');
+                    fieldView.renderIn(x, y, 'question_mark');
+                }
+                else if (cell.isQuestionMarked()) {
+                    cell.mark('not_marked');
+                    fieldView.renderIn(x, y, 'none');
+                }
             }
         }
 
