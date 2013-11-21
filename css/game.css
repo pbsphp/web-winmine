@@ -1,0 +1,122 @@
+/**
+    Game stylesheet
+
+    @author pbsphp
+    @email @pbsphp@yandex.ru
+
+    21-nov-2013
+*/
+
+
+@font-face {
+    font-family: Dial;
+    src: url(../fonts/dial/DS-DIGIB.TTF);
+}
+
+
+#minesweeper {
+    border: 1px solid black;
+    background-color: #c0c0c0;
+    padding: 6px;
+    display: inline-block;
+
+}
+
+
+#results {
+    border: 2px inset #c0c0c0;
+    padding-right: 6px;
+    padding-left: 6px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+    text-align: center;
+
+    margin-bottom: 6px;
+}
+
+
+.dial {
+    border: 1px inset #c0c0c0;
+    background-color: black;
+    width: 39px;
+    height: 24px;
+
+    font-size: 24px;
+    color: red;
+
+    font-family: Dial;
+
+    display: block;
+}
+
+
+
+.left {
+    float: left;
+}
+
+
+
+.right {
+    float: right;
+}
+
+
+
+#face {
+    width: 24px;
+    height: 24px;
+
+    background: #c0c0c0 url(../images/face-normal.png) no-repeat 100%;
+    background-position: center center;
+
+    border: 2px outset #c0c0c0;
+}
+
+
+
+#face-border {
+    border: 1px solid #808080;
+    padding: 0;
+    display: inline-block;
+}
+
+
+
+#field {
+    border: 3px inset #c0c0c0;
+}
+
+
+
+
+.mine-button {
+    width: 16px;
+    height: 16px;
+
+    margin: 0;
+
+    position: relative;
+    text-align: center;
+}
+
+.mine-button span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+.mine-button.unpressed {
+    background-color: #c0c0c0;
+    border: 2px outset #b0b0b0;
+}
+
+.mine-button.pressed {
+    border: 1px outset #808080;
+    background-color: #c0c0c0;
+}

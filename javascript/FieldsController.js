@@ -49,7 +49,7 @@
 
         // Change face on LMB press and unpress
 
-        $('#miner')
+        $('#minesweeper')
             .mousedown  (function() { fieldView.setFace('scared');  })
             .mouseup    (function() { fieldView.setFace('normal');  });
 
@@ -70,7 +70,7 @@
 
             // Remove listeners
 
-            $('#miner').unbind();
+            $('#minesweeper').unbind();
 
             $('.mine-button').unbind();
             $('.mine-button').prop('onclick', '');

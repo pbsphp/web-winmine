@@ -2,164 +2,47 @@
     <head>
     <meta charset="utf-8" />
 
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-    <script src="./javascript/FieldView.js"></script>
-
-    <script src="./javascript/Cell.js"></script>
-    <script src="./javascript/Field.js"></script>
-
-    <script src="./javascript/FieldsController.js"></script>
-
-    <script src="./javascript/Game.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/game.css" />
 
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-    <script>
+    <script type="text/javascript" src="./javascript/FieldView.js"></script>
+
+    <script type="text/javascript" src="./javascript/Cell.js"></script>
+    <script type="text/javascript" src="./javascript/Field.js"></script>
+
+    <script type="text/javascript" src="./javascript/FieldsController.js"></script>
+
+    <script type="text/javascript" src="./javascript/Game.js"></script>
 
 
-// fieldsController = null;
-game = null;
+
+    <script type="text/javascript">
+
+        // Start game
+
+        game = null;
 
 
-onload = function()
-{
+        onload = function()
+        {
 
-    game = new Game();
+            game = new Game();
 
-    game.start({
-        width: 20,
-        height: 15,
-        mines: 10,
-    });
+            game.start({
+                width: 20,
+                height: 15,
+                mines: 10,
+            });
 
-}
+        }
 
     </script>
 
-
-
-
-    <style>
-
-
-@font-face {
-    font-family: Dial;
-    src: url(./fonts/dial/DS-DIGIB.TTF);
-}
-
-
-#miner {
-    border: 1px solid black;
-    background-color: #c0c0c0;
-    padding: 6px;
-    display: inline-block;
-
-}
-
-
-#results {
-    border: 2px inset #b0b0b0;
-    padding-right: 6px;
-    padding-left: 6px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-
-    text-align: center;
-
-    margin-bottom: 6px;
-}
-
-
-.dial {
-    border: 1px inset #b0b0b0;
-    background-color: black;
-    width: 39px;
-    height: 24px;
-
-    font-size: 24px;
-    color: red;
-
-    font-family: Dial;
-
-    display: block;
-}
-
-.left {
-    float: left;
-}
-
-.right {
-    float: right;
-}
-
-
-#face {
-    width: 24px;
-    height: 24px;
-
-    background: #c0c0c0 url(./images/face-normal.png) no-repeat 100%;
-    background-position: center center;
-
-    border: 2px outset #b0b0b0;
-}
-
-
-#face-border {
-    border: 1px solid #808080;
-    padding: 0;
-    display: inline-block;
-}
-
-
-#field {
-    border: 3px inset #b0b0b0;
-}
-
-
-
-
-.mine-button {
-    width: 16px;
-    height: 16px;
-
-    margin: 0;
-
-    position: relative;
-    text-align: center;
-}
-
-.mine-button span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-
-
-
-.mine-button.unpressed {
-    background-color: #c0c0c0;
-    border: 2px outset #b0b0b0;
-}
-
-.mine-button.pressed {
-    border: 1px outset #b0b0b0;
-    background-color: #c0c0c0;
-}
-
-
-    </style>
-
-
-
     </head>
     <body>
-        <div id="miner">
+        <div id="minesweeper">
             <div id="results">
                 <div id="number_of_mines" class="dial left">000</div>
                 <span id="face-border">
