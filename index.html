@@ -12,49 +12,29 @@
 
     <script src="./javascript/FieldsController.js"></script>
 
+    <script src="./javascript/Game.js"></script>
+
+
 
     <script>
 
 
-fieldsController = null;
+// fieldsController = null;
+game = null;
+
 
 onload = function()
 {
-    // for (var y = 0; y < 15; ++y) {
-    //     var row = $('<div/>');
-    //     row.addClass('mine-field-row');
-    //     for (var x = 0; x < 30; ++x) {
-    //         var button = $('<button/>');
-    //         button.addClass('mine-button unpressed');
-    //         button.attr('onclick', 'pressed(' + x + ', ' + y + ')');
-    //         button.attr('id', 'mine-button-' + x + '-' + y);
-    //         row.append(button);
-    //     }
-    //     $('#field').append(row);
-    // }
 
-    fieldsController = new FieldsController({
-        width: 9,
-        height: 9,
-        mines: 3,
-        field: $('#field')
+    game = new Game();
+
+    game.start({
+        width: 20,
+        height: 15,
+        mines: 10,
     });
 
 }
-
-
-function f()
-{
-    fieldsController = new FieldsController({
-        width: 9,
-        height: 9,
-        mines: 10,
-        field: $('#field')
-    })
-}
-
-
-
 
     </script>
 
@@ -183,7 +163,7 @@ function f()
             <div id="results">
                 <div id="number_of_mines" class="dial left">000</div>
                 <span id="face-border">
-                    <button id="face" onclick="f()"></button>
+                    <button id="face" onclick="game.restart()"></button>
                 </span>
                 <div id="timer" class="dial right">000</div>
             </div>
