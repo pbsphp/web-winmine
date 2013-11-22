@@ -38,32 +38,137 @@
 
         }
 
+
+
+        // TODO: Move to Game.view
+
+
+        hideMenus = function()
+        {
+            $('.menu').hide();
+            $('#menu-background').hide();
+            $('.menu-item').removeClass('selected');
+        }
+
+
+
+
+        gameMenu = function(item, element_id)
+        {
+            $(item).addClass('selected');
+            $('#menu-background').show();
+
+
+            var buttonPosition = $(item).position();
+
+            var left = buttonPosition.left;
+            var top = buttonPosition.top + $(item).height() + 5;
+
+            $('#' + element_id).css('left', left);
+            $('#' + element_id).css('top', top);
+            $('#' + element_id).show();
+
+        }
+
+
+
     </script>
 
     </head>
     <body>
-        <div id="minesweeper">
-            <div id="results">
-                <table class="results-table" width="100%">
-                    <tr>
-                        <td>
-                            <div id="number_of_mines" class="dial left">000</div>
-                        </td>
-                        <td align="center">
-                            <span id="face-border">
-                                <button id="face" onclick="game.restart()"></button>
-                            </span>
-                        </td>
-                        <td>
-                            <div id="timer" class="dial right">000</div>
-                        </td>
-                    </tr>
-                </table>
+
+        <div id="main">
+
+            <div class="top-menu-block">
+                <ul class="top-menu">
+                    <li id="game-menu-caller" class="menu-item" onclick="gameMenu(this, 'game-menu')">
+                        Игра
+                    </li>
+                    <li id="help-menu-caller" class="menu-item" onclick="gameMenu(this, 'help-menu')">
+                        Справка
+                    </li>
+                </ul>
             </div>
 
-            <div id="field">
-                <!-- Mines here -->
+
+            <div id="minesweeper">
+
+                <div id="results">
+                    <table class="results-table" width="100%">
+                        <tr>
+                            <td>
+                                <div id="number_of_mines" class="dial left">000</div>
+                            </td>
+                            <td align="center">
+                                <span id="face-border">
+                                    <button id="face" onclick="game.restart()"></button>
+                                </span>
+                            </td>
+                            <td>
+                                <div id="timer" class="dial right">000</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="field">
+                    <!-- Mines here -->
+                </div>
             </div>
+
+
+
+            <div id="menu-background" onclick="hideMenus()"></div>
+
+
+            <div id="game-menu" class="menu" onclick="hideMenus()">
+                <ul>
+                    <li onclick="game.restart()">
+                        Новая игра
+                    </li>
+                </ul>
+                <hr />
+                <ul>
+                    <li onclick="game.restart(game.levels.easy)">
+                        Новичок
+                    </li>
+                    <li onclick="game.restart(game.levels.medium)">
+                        Любитель
+                    </li>
+                    <li onclick="game.restart(game.levels.hard)">
+                        Профессионал
+                    </li>
+                </ul>
+                <hr />
+                <ul>
+                    <li>
+                        Звук (хуйс)
+                    </li>
+                </ul>
+                <hr />
+                <ul>
+                    <li>
+                        Чемпионы (хуйс)
+                    </li>
+                </ul>
+            </div>
+
+
+            <div id="help-menu" class="menu" onclick="hideMenus()">
+                <ul>
+                    <li>
+                        Лицензия на шрифты (хуйс)
+                    </li>
+                </ul>
+                <hr />
+                <ul>
+                    <li>
+                        Об игре (хуйс)
+                    </li>
+                </ul>
+            </div>
+
         </div>
+
     </body>
 </html>
