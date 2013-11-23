@@ -60,6 +60,7 @@
         // Clear dials
 
         $('#timer').html('000');
+        $('#number_of_mines').html('000');
 
 
         // Seconds after start
@@ -239,6 +240,35 @@
         {
             $('#mine-button-' + x + '-' + y).css('background-color', 'red');
         };
+
+
+
+
+        /**
+            setNumberOfMines(N)
+
+            Set number of mines in mines counter
+        */
+        this.setNumberOfMines = function(N)
+        {
+            var sNumberOfMines = '';
+
+            if (N >= 0) {
+                // Get three last digits (within zeros)
+                for (var i = 3; i > 0; --i) {
+                    sNumberOfMines += ((N / Math.pow(10, i - 1)) % 10) | 0;
+                }
+            }
+            else {
+                // Get two last digits (within zeros)
+                sNumberOfMines = '-';
+                for (var i = 2; i > 0; --i) {
+                    sNumberOfMines += ((-N / Math.pow(10, i - 1)) % 10) | 0;
+                }
+            }
+
+            $('#number_of_mines').html(sNumberOfMines);
+        }
 
     };
 

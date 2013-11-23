@@ -47,6 +47,15 @@
         });
 
 
+
+        // Number of mines in mines counter
+        var numberOfMines = options.mines;
+
+        // Set number of mines
+        fieldView.setNumberOfMines(numberOfMines);
+
+
+
         // Change face on LMB press and unpress
 
         $('#minesweeper')
@@ -211,10 +220,18 @@
                 if (!cell.isFlaged() && !cell.isQuestionMarked()) {
                     cell.mark('flag');
                     fieldView.renderIn(x, y, 'flag');
+
+                    // Set number of mines
+                    --numberOfMines;
+                    fieldView.setNumberOfMines(numberOfMines);
                 }
                 else if (cell.isFlaged()) {
                     cell.mark('question_mark');
                     fieldView.renderIn(x, y, 'question_mark');
+
+                    // Set number of mines
+                    ++numberOfMines;
+                    fieldView.setNumberOfMines(numberOfMines);
                 }
                 else if (cell.isQuestionMarked()) {
                     cell.mark('not_marked');
